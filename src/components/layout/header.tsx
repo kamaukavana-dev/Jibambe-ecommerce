@@ -44,6 +44,7 @@ export function Header() {
       <div className="container-page flex h-16 items-center gap-3 sm:gap-6">
         <button
           type="button"
+          id="menu-button"
           onClick={openMobileNav}
           className="grid h-11 w-11 place-items-center rounded text-ink-muted transition-colors duration-micro hover:bg-surface-sunken hover:text-ink lg:hidden"
           aria-label="Open menu"
@@ -63,6 +64,7 @@ export function Header() {
         {/* Search trigger — expands into the overlay */}
         <button
           type="button"
+          id="search-trigger"
           onClick={openSearch}
           className="ml-auto flex h-11 max-w-md flex-1 items-center gap-3 rounded-full border border-border-strong bg-surface-sunken px-4 text-left text-sm text-ink-subtle transition-colors duration-micro hover:border-ink-subtle lg:ml-6"
         >
@@ -84,6 +86,7 @@ export function Header() {
           </Link>
           <button
             type="button"
+            id="cart-button"
             onClick={openCart}
             className="relative grid h-11 w-11 place-items-center rounded text-ink-muted transition-colors duration-micro hover:bg-surface-sunken hover:text-ink"
             aria-label={`Cart${hydrated && itemCount ? `, ${itemCount} items` : ''}`}

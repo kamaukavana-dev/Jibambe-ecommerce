@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
-import { CartDrawer } from '@/components/layout/cart-drawer';
-import { SearchOverlay } from '@/components/layout/search-overlay';
+import { AppShell } from '@/components/layout/app-shell';
 
 // Self-hosted via next/font: no external request, no layout shift. `display:
 // swap` avoids invisible text while the font loads. CSS variables feed the
@@ -57,13 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="sr-only sr-only-focusable">
           Skip to content
         </a>
-        <Header />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <CartDrawer />
-        <SearchOverlay />
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

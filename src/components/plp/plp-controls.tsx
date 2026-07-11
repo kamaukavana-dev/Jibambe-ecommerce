@@ -31,6 +31,7 @@ export function PlpControls({ total, allProducts }: { total: number; allProducts
         <Button
           variant="outline"
           size="sm"
+          id="plp-filters-button"
           className="lg:hidden"
           onClick={() => setOpen(true)}
         >
@@ -45,7 +46,13 @@ export function PlpControls({ total, allProducts }: { total: number; allProducts
         <SortSelect />
       </div>
 
-      <Drawer open={open} onOpenChange={setOpen} title="Filters" side="left">
+      <Drawer
+        open={open}
+        onOpenChange={setOpen}
+        title="Filters"
+        side="left"
+        returnFocusTo="#plp-filters-button"
+      >
         <div className="flex-1 overflow-y-auto px-5 py-4">
           <FilterSidebar allProducts={allProducts} />
         </div>

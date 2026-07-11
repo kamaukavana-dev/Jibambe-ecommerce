@@ -51,12 +51,15 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Headings default to the display serif; body stays sans. */
+  /* Headings default to the display serif; body stays sans. Colour is left to
+     inherit (not forced to text-ink) so headings on dark panels — the hero,
+     collection features — stay legible via their parent's text colour instead
+     of vanishing as dark-on-dark. */
   h1,
   h2,
   h3,
   h4 {
-    @apply font-display text-ink;
+    @apply font-display;
     text-wrap: balance;
   }
 

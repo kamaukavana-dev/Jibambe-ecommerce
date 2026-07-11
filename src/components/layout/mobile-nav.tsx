@@ -16,7 +16,13 @@ export function MobileNav() {
   const close = useUiStore((s) => s.closeMobileNav);
 
   return (
-    <Drawer open={open} onOpenChange={setOpen} title="Browse" side="left">
+    <Drawer
+      open={open}
+      onOpenChange={setOpen}
+      title="Browse"
+      side="left"
+      returnFocusTo="#menu-button"
+    >
       <nav aria-label="Categories" className="flex-1 overflow-y-auto p-4">
         <Link
           href="/shop"

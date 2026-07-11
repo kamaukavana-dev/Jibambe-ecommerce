@@ -32,6 +32,7 @@ export function CartDrawer() {
       onOpenChange={setOpen}
       title={`Your cart${totals.itemCount ? ` (${totals.itemCount})` : ''}`}
       description="Items in your shopping cart"
+      returnFocusTo="#cart-button"
     >
       {lines.length === 0 ? (
         <div className="flex flex-1 flex-col items-center justify-center px-6 text-center">

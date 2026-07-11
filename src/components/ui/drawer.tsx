@@ -20,6 +20,12 @@ interface DrawerProps {
   children: React.ReactNode;
   side?: 'right' | 'left';
   className?: string;
+  /**
+   * CSS selector for the element to restore focus to on close. Required for
+   * a11y when the drawer is opened imperatively (via a store) rather than a
+   * Radix Trigger — otherwise focus falls to <body> on close.
+   */
+  returnFocusTo?: string;
 }
 
 export function Drawer({
@@ -30,6 +36,7 @@ export function Drawer({
   children,
   side = 'right',
   className,
+  returnFocusTo,
 }: DrawerProps) {
   const reduce = useReducedMotion();
   const offX = side === 'right' ? '100%' : '-100%';
@@ -48,7 +55,19 @@ export function Drawer({
                 transition={{ duration: 0.2 }}
               />
             </Dialog.Overlay>
-            <Dialog.Content asChild forceMount aria-describedby={undefined}>
+            <Dialog.Content
+              asChild
+              forceMount
+              aria-describedby={undefined}
+              onCloseAutoFocus={(e) => {
+                if (!returnFocusTo) return;
+                const target = document.querySelector<HTMLElement>(returnFocusTo);
+                if (target) {
+                  e.preventDefault();
+                  target.focus();
+                }
+              }}
+            >
               <motion.aside
                 className={cn(
                   'fixed inset-y-0 z-50 flex w-full max-w-md flex-col bg-surface shadow-lg',

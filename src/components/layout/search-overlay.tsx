@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
@@ -26,6 +26,9 @@ export function SearchOverlay() {
   const close = useUiStore((s) => s.closeSearch);
   const [query, setQuery] = useState('');
   const debounced = useDebouncedValue(query, 180);
+  // True when the overlay is closing because the user picked a result — in that
+  // case the destination page owns focus, so we skip restoring it to the header.
+  const navigatingRef = useRef(false);
 
   // ⌘K / Ctrl-K global shortcut.
   useEffect(() => {
@@ -61,6 +64,7 @@ export function SearchOverlay() {
 
   const goToResults = () => {
     if (!query.trim()) return;
+    navigatingRef.current = true;
     // Navigate first, then close — closing the Radix dialog before pushing can
     // swallow the navigation as the portal unmounts.
     router.push(`/search?q=${encodeURIComponent(query.trim())}`);
@@ -81,7 +85,25 @@ export function SearchOverlay() {
                 transition={{ duration: 0.2 }}
               />
             </Dialog.Overlay>
-            <Dialog.Content asChild forceMount aria-describedby={undefined}>
+            <Dialog.Content
+              asChild
+              forceMount
+              aria-describedby={undefined}
+              onCloseAutoFocus={(e) => {
+                // On a result navigation the destination owns focus — skip the
+                // restore. Otherwise (Escape / X / backdrop) return focus to the
+                // header trigger so keyboard users aren't dropped on <body>.
+                if (navigatingRef.current) {
+                  navigatingRef.current = false;
+                  return;
+                }
+                const target = document.querySelector<HTMLElement>('#search-trigger');
+                if (target) {
+                  e.preventDefault();
+                  target.focus();
+                }
+              }}
+            >
               <motion.div
                 className="fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-2xl px-4 pt-4 sm:pt-20"
                 initial={reduce ? { opacity: 0 } : { opacity: 0, y: -16 }}
@@ -130,7 +152,10 @@ export function SearchOverlay() {
                           <li key={p.id}>
                             <Link
                               href={`/product/${p.slug}`}
-                              onClick={close}
+                              onClick={() => {
+                                navigatingRef.current = true;
+                                close();
+                              }}
                               className="flex items-center gap-3 rounded-md px-2 py-2 transition-colors duration-micro hover:bg-surface-sunken"
                             >
                               <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded bg-surface-sunken">
