@@ -96,25 +96,29 @@ Measured against the surface it appears on:
 | ----------------- | --------------- | ------ | ------- |
 | ink (`#1a1713`)   | surface         | 16.1:1 | ✅ pass |
 | ink-muted         | surface         | 7.4:1  | ✅ pass |
-| ink-subtle        | surface         | 3.5:1  | ⚠️ non-text / disabled only |
+| ink-subtle        | surface         | 5.1:1  | ✅ pass (4.7:1 on sunken)   |
 | accent (clay-600) | surface         | 5.9:1  | ✅ pass |
 | accent-fg         | accent fill     | 7.1:1  | ✅ pass |
 | danger            | surface         | 5.6:1  | ✅ pass |
 | success           | surface         | 4.9:1  | ✅ pass |
 | warning           | surface         | 4.6:1  | ✅ pass |
 
-`ink-subtle` is intentionally below 4.5:1 and is **never** used for meaningful
-text — only disabled affordances and decorative dividers, where AA does not
-require contrast. This is a deliberate, documented exception, not an oversight.
+`ink-subtle` was originally tuned below AA on the assumption it would only carry
+decorative/disabled UI, but in practice it ended up on real tertiary text (brand
+labels, strikethrough prices). The Lighthouse accessibility pass caught this, so
+it was darkened to `#736a58` — still the lightest of the three text tones, but AA
+on both `surface` and `surface-sunken`. Every text tone now meets AA.
 
 ---
 
 ## 3. Spacing
 
-**4px base unit**, restricted set: `0, px, 0.5, 1, 2, 3, 4, 5, 6, 8, 10, 12, 14,
-16, 20, 24, 32, 40` (× 4px). Tailwind's default open-ended spacing scale is
-*removed* and replaced with this explicit set — so `mt-[13px]` is impossible by
-construction. A 4px grid keeps rhythm consistent and aligns to most icon sets.
+**4px base unit** — Tailwind's default 4px-based ladder (`0, 0.5, 1, 1.5, 2, 2.5,
+3, 3.5, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 20, 24 …`). An earlier version
+*pruned* this to a shorter set, which silently dropped real utilities (`h-9`,
+`h-11`, `gap-1.5`) — so components collapsed to content size. The lesson: keep
+the full 4px grid and enforce "no arbitrary `mt-[13px]`" via lint + review, not
+by deleting scale steps. Everything still lands on a 4px rhythm.
 
 Layout: page container `max-w-container` (1280px), content `1200px`, gutters step
 up responsively `16 → 24 → 32px` (`px-4 sm:px-6 lg:px-8`).

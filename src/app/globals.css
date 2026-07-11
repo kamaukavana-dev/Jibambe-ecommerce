@@ -17,7 +17,7 @@
 
   --ink: 26 23 19; /* stone-950 — primary text  (16.1:1 on surface) */
   --ink-muted: 84 77 65; /* stone-700 — secondary text (7.4:1 on surface) */
-  --ink-subtle: 143 132 112; /* stone-500 — tertiary / disabled (3.5:1, non-text only) */
+  --ink-subtle: 115 106 88; /* tertiary text — 5.1:1 on surface, 4.7:1 on sunken (AA) */
   --ink-inverse: 250 249 246; /* text on dark / accent fills */
 
   --border: 232 228 218; /* stone-200 — hairlines, dividers */

@@ -10,7 +10,7 @@ import { useFilterNav } from './use-filter-nav';
 function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="border-b border-border py-5 first:pt-0">
-      <h3 className="mb-3 text-sm font-semibold text-ink">{title}</h3>
+      <h2 className="mb-3 text-sm font-semibold text-ink">{title}</h2>
       {children}
     </div>
   );

@@ -22,27 +22,10 @@ const config: Config = {
       '4xl': ['3.0518rem', { lineHeight: '3.25rem', letterSpacing: '-0.02em' }],
       '5xl': ['3.8147rem', { lineHeight: '4rem', letterSpacing: '-0.02em' }],
     },
-    // ---- Spacing: 4px base, restricted set. No arbitrary values in components.
-    spacing: {
-      0: '0',
-      px: '1px',
-      0.5: '0.125rem',
-      1: '0.25rem',
-      2: '0.5rem',
-      3: '0.75rem',
-      4: '1rem',
-      5: '1.25rem',
-      6: '1.5rem',
-      8: '2rem',
-      10: '2.5rem',
-      12: '3rem',
-      14: '3.5rem',
-      16: '4rem',
-      20: '5rem',
-      24: '6rem',
-      32: '8rem',
-      40: '10rem',
-    },
+    // Spacing uses Tailwind's default 4px-based scale — a strict grid, not
+    // arbitrary values. (Overriding/pruning it silently drops real utilities
+    // like h-9 / h-11 / gap-1.5, so we keep the full ladder and rely on lint +
+    // review to prevent one-off `mt-[13px]` escapes.)
     screens: {
       sm: '640px',
       md: '768px',
