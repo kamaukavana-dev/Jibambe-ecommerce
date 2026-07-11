@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import * as Dialog from '@radix-ui/react-dialog';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Search, X, ArrowRight } from 'lucide-react';
@@ -19,6 +19,7 @@ import { formatKsh } from '@/lib/currency';
  */
 export function SearchOverlay() {
   const router = useRouter();
+  const pathname = usePathname();
   const reduce = useReducedMotion();
   const open = useUiStore((s) => s.searchOpen);
   const setOpen = useUiStore((s) => s.setSearchOpen);
@@ -38,6 +39,13 @@ export function SearchOverlay() {
     return () => window.removeEventListener('keydown', onKey);
   }, [open, setOpen]);
 
+  // Close the overlay whenever the route changes (e.g. picking a result), so
+  // it never lingers over the destination page.
+  useEffect(() => {
+    close();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
   // Reset the query shortly after close so it doesn't flash on reopen.
   useEffect(() => {
     if (!open) {
@@ -53,8 +61,10 @@ export function SearchOverlay() {
 
   const goToResults = () => {
     if (!query.trim()) return;
-    close();
+    // Navigate first, then close — closing the Radix dialog before pushing can
+    // swallow the navigation as the portal unmounts.
     router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+    close();
   };
 
   return (

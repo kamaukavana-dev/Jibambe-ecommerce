@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Lock, ArrowLeft } from 'lucide-react';
 import { Input, Label, FieldError } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { useCartStore, useCartTotals } from '@/store/cart-store';
+import { useCartTotals } from '@/store/cart-store';
 import { useCheckoutStore } from '@/store/checkout-store';
 import {
   cardNumber as cardNumberRule,
@@ -40,7 +40,6 @@ function formatExpiry(v: string): string {
 
 export function PaymentForm() {
   const router = useRouter();
-  const clearCart = useCartStore((s) => s.clear);
   const setOrder = useCheckoutStore((s) => s.setOrder);
   const shipping = useCheckoutStore((s) => s.shipping);
   const totals = useCartTotals();
@@ -85,7 +84,8 @@ export function PaymentForm() {
         total: totals.total,
         itemCount: totals.itemCount,
       });
-      clearCart();
+      // The cart is cleared on the confirmation page (not here) so emptying it
+      // doesn't trip this guarded page's empty-cart redirect mid-navigation.
       router.push('/checkout/confirmation');
     }, 900);
   };

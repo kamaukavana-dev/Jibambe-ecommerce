@@ -12,8 +12,13 @@ const kshFormatter = new Intl.NumberFormat('en-KE', {
 
 /** Format a whole-shilling amount, e.g. 145999 -> "KSh 145,999". */
 export function formatKsh(amount: number): string {
-  // Intl gives "KES 145,999"; we prefer the local "KSh" abbreviation.
-  return kshFormatter.format(Math.round(amount)).replace('KES', 'KSh');
+  // Intl gives "KES 145,999" (a narrow no-break space); we swap the code
+  // for the local "KSh" abbreviation and normalise the separator to a plain
+  // space so the output is deterministic across ICU versions.
+  return kshFormatter
+    .format(Math.round(amount))
+    .replace('KES', 'KSh')
+    .replace(/[  ]/g, ' ');
 }
 
 /** Discount percentage from a compare-at price, rounded to a whole number. */

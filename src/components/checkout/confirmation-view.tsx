@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { CheckCircle2, Package, Mail } from 'lucide-react';
 import { useCheckoutStore } from '@/store/checkout-store';
+import { useCartStore } from '@/store/cart-store';
 import { useHydrated } from '@/lib/use-hydrated';
 import { formatKsh } from '@/lib/currency';
 import { Button } from '@/components/ui/button';
@@ -20,10 +21,18 @@ export function ConfirmationView() {
   const hydrated = useHydrated();
   const order = useCheckoutStore((s) => s.order);
   const shipping = useCheckoutStore((s) => s.shipping);
+  const clearCart = useCartStore((s) => s.clear);
 
   useEffect(() => {
-    if (hydrated && !order) router.replace('/');
-  }, [hydrated, order, router]);
+    if (!hydrated) return;
+    if (!order) {
+      router.replace('/');
+    } else {
+      // Order placed — empty the cart now that we're on the (unguarded)
+      // confirmation page. Safe to call repeatedly.
+      clearCart();
+    }
+  }, [hydrated, order, router, clearCart]);
 
   if (!hydrated || !order) {
     return <Skeleton className="mx-auto h-96 w-full max-w-lg rounded-lg" />;
