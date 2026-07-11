@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Semantic color tokens. Primitives live in tailwind.config.ts; here we map
+ * them to meaning. Values are space-separated RGB channels so Tailwind's
+ * <alpha-value> works (bg-accent/10, text-ink/60, etc.).
+ *
+ * Contrast (WCAG 2.1 AA) verified for every foreground/background pair used
+ * for text — see DESIGN_SYSTEM.md "Color contrast ledger".
+ */
+:root {
+  --surface: 250 249 246; /* stone-50  — page background (warm paper) */
+  --surface-raised: 255 255 255; /* pure white — cards lift off the paper */
+  --surface-sunken: 243 241 236; /* stone-100 — wells, inputs, filter rail */
+
+  --ink: 26 23 19; /* stone-950 — primary text  (16.1:1 on surface) */
+  --ink-muted: 84 77 65; /* stone-700 — secondary text (7.4:1 on surface) */
+  --ink-subtle: 143 132 112; /* stone-500 — tertiary / disabled (3.5:1, non-text only) */
+  --ink-inverse: 250 249 246; /* text on dark / accent fills */
+
+  --border: 232 228 218; /* stone-200 — hairlines, dividers */
+  --border-strong: 214 207 192; /* stone-300 — input borders, emphasis */
+
+  --accent: 163 68 36; /* clay-600 — CTAs, links, focus (5.9:1 on surface) */
+  --accent-hover: 131 55 31; /* clay-700 */
+  --accent-fg: 250 249 246; /* text on accent fills (7.1:1 on clay-600) */
+  --accent-subtle: 251 243 239; /* clay-50 — tinted backgrounds */
+
+  --danger: 178 42 34; /* 5.6:1 on surface */
+  --danger-subtle: 251 235 233;
+  --success: 30 110 74; /* 4.9:1 on surface */
+  --success-subtle: 229 243 236;
+  --warning: 156 96 12; /* 4.6:1 on surface */
+  --warning-subtle: 250 240 224;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings default to the display serif; body stays sans. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+    text-wrap: balance;
+  }
+
+  /* One focus treatment, everywhere, driven by the accent token. Mouse users
+     don't see it; keyboard users always do. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-surface;
+  }
+
+  /* Respect the user. All non-essential motion collapses to instant. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Loading skeleton shimmer, built from tokens. */
+  .skeleton {
+    @apply relative overflow-hidden bg-surface-sunken;
+  }
+  .skeleton::after {
+    @apply absolute inset-0 -translate-x-full;
+    content: '';
+    background-image: linear-gradient(
+      90deg,
+      rgb(255 255 255 / 0) 0,
+      rgb(255 255 255 / 0.6) 50%,
+      rgb(255 255 255 / 0) 100%
+    );
+    animation: shimmer 1.6s infinite;
+  }
+
+  /* Accessible visually-hidden helper for skip links / screen-reader labels. */
+  .sr-only-focusable:focus {
+    @apply not-sr-only fixed left-4 top-4 z-50 rounded-md bg-accent px-4 py-2 text-accent-fg;
+  }
+}
