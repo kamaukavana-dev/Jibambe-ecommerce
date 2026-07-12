@@ -42,6 +42,8 @@ test('browse to a product, add to cart, and complete checkout', async ({ page })
   await page.getByLabel('Card number').fill('4242 4242 4242 4242');
   await page.getByLabel('Expiry (MM/YY)').fill('08/30');
   await page.getByLabel('CVC').fill('123');
+  // Accept the required Terms & Conditions / Privacy Policy before paying.
+  await page.getByRole('checkbox', { name: /i agree to the terms/i }).check();
   await page.getByRole('button', { name: /pay ksh/i }).click();
 
   // Confirmation.

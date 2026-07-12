@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Lock, ArrowLeft } from 'lucide-react';
 import { Input, Label, FieldError } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { useCartTotals } from '@/store/cart-store';
 import { useCheckoutStore } from '@/store/checkout-store';
 import {
@@ -52,6 +54,8 @@ export function PaymentForm() {
   });
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+  const [agreeError, setAgreeError] = useState(false);
 
   // Validators are constructed at render (runtime) so expiry compares to "now".
   const validators: Record<Field, Validator> = {
@@ -72,7 +76,8 @@ export function PaymentForm() {
     e.preventDefault();
     const allErrors = validateForm(values, validators);
     setErrors(allErrors);
-    if (Object.keys(allErrors).length > 0) return;
+    if (!agreed) setAgreeError(true);
+    if (Object.keys(allErrors).length > 0 || !agreed) return;
 
     setSubmitting(true);
     // Simulate a payment round-trip, then confirm the order.
@@ -102,7 +107,7 @@ export function PaymentForm() {
       <h1 className="mb-2 font-display text-2xl font-semibold text-ink">Payment</h1>
       <p className="mb-6 flex items-center gap-1.5 text-sm text-ink-muted">
         <Lock className="h-4 w-4 text-success" />
-        This is a demo — use any Luhn-valid number (e.g. 4242 4242 4242 4242). No real charge.
+        Secure checkout. We do not process or store payment information.
       </p>
 
       <div className="grid gap-x-4 gap-y-5 sm:grid-cols-2">
@@ -127,6 +132,45 @@ export function PaymentForm() {
             </div>
           );
         })}
+      </div>
+
+      <div className="mt-6">
+        <label className="flex cursor-pointer items-start gap-3">
+          <Checkbox
+            checked={agreed}
+            onCheckedChange={(c) => {
+              setAgreed(c === true);
+              if (c === true) setAgreeError(false);
+            }}
+            aria-label="I agree to the Terms & Conditions and Privacy Policy"
+            aria-describedby={agreeError ? 'agree-error' : undefined}
+            className="mt-0.5"
+          />
+          <span className="text-sm text-ink-muted">
+            I agree to the{' '}
+            <Link
+              href="/terms"
+              target="_blank"
+              className="font-medium text-accent underline-offset-2 hover:underline"
+            >
+              Terms &amp; Conditions
+            </Link>{' '}
+            and{' '}
+            <Link
+              href="/privacy"
+              target="_blank"
+              className="font-medium text-accent underline-offset-2 hover:underline"
+            >
+              Privacy Policy
+            </Link>
+            .
+          </span>
+        </label>
+        {agreeError && (
+          <p id="agree-error" className="mt-2 text-sm text-danger" role="alert">
+            Please accept the Terms &amp; Conditions and Privacy Policy to continue.
+          </p>
+        )}
       </div>
 
       <div className="mt-8 flex items-center justify-between gap-3">
