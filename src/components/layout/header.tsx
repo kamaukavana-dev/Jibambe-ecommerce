@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Heart, ShoppingBag, Menu } from 'lucide-react';
+import { Search, Heart, ShoppingBag, Menu, User } from 'lucide-react';
 import { categories } from '@/data/categories';
 import { useCartStore, useCartTotals } from '@/store/cart-store';
 import { useWishlistStore } from '@/store/wishlist-store';
@@ -76,6 +76,13 @@ export function Header() {
         </button>
 
         <div className="flex items-center gap-1">
+          <Link
+            href="/account"
+            className="relative hidden h-11 w-11 place-items-center rounded text-ink-muted transition-colors duration-micro hover:bg-surface-sunken hover:text-ink sm:grid"
+            aria-label="My account"
+          >
+            <User className="h-6 w-6" />
+          </Link>
           <Link
             href="/wishlist"
             className="relative grid h-11 w-11 place-items-center rounded text-ink-muted transition-colors duration-micro hover:bg-surface-sunken hover:text-ink"

@@ -47,6 +47,15 @@ export function MobileNav() {
             <ChevronRight className="h-5 w-5 shrink-0 text-ink-subtle" />
           </Link>
         ))}
+        <div className="my-2 h-px bg-border" />
+        <Link
+          href="/account"
+          onClick={close}
+          className="flex items-center justify-between rounded px-3 py-3 text-base font-medium text-ink transition-colors duration-micro hover:bg-surface-sunken"
+        >
+          My Account
+          <ChevronRight className="h-5 w-5 text-ink-subtle" />
+        </Link>
       </nav>
     </Drawer>
   );
