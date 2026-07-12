@@ -1,5 +1,6 @@
 import type { Review } from '@/types';
 import { RatingStars } from './rating-stars';
+import { ReviewAvatar } from './review-avatar';
 
 /** Review list with an aggregate summary. Server-rendered (static content). */
 export function Reviews({ reviews, rating }: { reviews: Review[]; rating: number }) {
@@ -24,9 +25,7 @@ export function Reviews({ reviews, rating }: { reviews: Review[]; rating: number
           <li key={`${r.author}-${i}`} className="py-5">
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-accent-subtle text-sm font-semibold text-accent">
-                  {r.author.charAt(0)}
-                </span>
+                <ReviewAvatar name={r.author} className="h-9 w-9 shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-ink">{r.author}</p>
                   <RatingStars rating={r.rating} />

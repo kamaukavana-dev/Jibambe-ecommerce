@@ -1,8 +1,8 @@
 import type { Product } from '@/types';
 
 /**
- * Jibambe catalog — 28 products across 6 categories, ported and extended from
- * the original ShopKenya project. Prices are in Kenyan Shillings (KSh). Reviews,
+ * Jibambe catalog — 62 products across 6 categories. Prices are in Kenyan
+ * Shillings (KSh). Reviews,
  * ratings, stock and sold counts are carried over where they existed; new
  * products follow the same shape and voice. Images are local static assets in
  * /public/products (see scripts/fetch-images.mjs).
@@ -1194,6 +1194,1515 @@ export const products: Product[] = [
       },
     ],
     tags: ['new'],
+  },
+
+  // ---- Catalog expansion (ids 29–62) ----
+  {
+    id: 29,
+    slug: 'redmi-note-13-pro',
+    name: 'Xiaomi Redmi Note 13 Pro',
+    brand: 'Xiaomi',
+    category: 'electronics',
+    price: 31999,
+    compareAtPrice: 34999,
+    description:
+      'A 200MP camera and 120Hz AMOLED display at a price that leaves room in the budget.',
+    details:
+      'The Redmi Note 13 Pro punches well above its price. The 6.67" 120Hz AMOLED is bright enough for Nairobi midday sun, the 200MP sensor holds detail when you crop, and 67W turbo charging takes it from flat to usable over a cup of chai. A 5,100mAh cell comfortably clears a full day of hotspotting and WhatsApp.',
+    images: [img('redmi-note-13-pro', 1), img('redmi-note-13-pro', 2)],
+    stock: 34,
+    sold: 96,
+    rating: 4.5,
+    reviews: [
+      {
+        author: 'Otieno',
+        rating: 5,
+        comment: 'Unbeatable for the price. The screen is bright and the battery just refuses to die.',
+        date: '2024-03-04',
+      },
+      {
+        author: 'Nyambura',
+        rating: 4,
+        comment: 'Camera is great in daylight, a little noisy at night. Still very happy with it.',
+        date: '2024-02-28',
+      },
+      {
+        author: 'Kiptoo',
+        rating: 3,
+        comment:
+          'Good phone but it came with a lot of pre-installed apps I had to uninstall. Performance is solid though.',
+        date: '2024-02-20',
+      },
+      {
+        author: 'Mercy',
+        rating: 5,
+        comment: 'Fast charging is a lifesaver. Delivered to Nakuru in two days.',
+        date: '2024-02-15',
+      },
+    ],
+    features: ['200MP Camera', '120Hz AMOLED', '67W Turbo Charge', '5100mAh Battery'],
+    variants: [
+      {
+        name: 'Colour',
+        type: 'swatch',
+        options: [
+          { label: 'Midnight Black', swatch: '#1b1b1d', inStock: true },
+          { label: 'Aurora Purple', swatch: '#6b5b95', inStock: true },
+          { label: 'Ocean Teal', swatch: '#2f6b6b', inStock: false },
+        ],
+      },
+      {
+        name: 'Storage',
+        type: 'pill',
+        options: [
+          { label: '128GB', inStock: true },
+          { label: '256GB', priceDelta: 4000, inStock: true },
+        ],
+      },
+    ],
+    tags: ['bestseller', 'sale'],
+  },
+  {
+    id: 30,
+    slug: 'jbl-flip-6',
+    name: 'JBL Flip 6 Portable Speaker',
+    brand: 'JBL',
+    category: 'electronics',
+    price: 15499,
+    description:
+      'A rugged, waterproof speaker that fills a room and shrugs off a poolside splash.',
+    details:
+      'The Flip 6 pairs a racetrack driver with a separate tweeter, so vocals stay clear even when you push the bass. IP67 means dust and water are a non-issue — take it to the beach at Diani or the balcony. 12 hours of playtime and PartyBoost lets you chain two together for stereo.',
+    images: [img('jbl-flip-6', 1), img('jbl-flip-6', 2)],
+    stock: 41,
+    sold: 73,
+    rating: 4.7,
+    reviews: [
+      {
+        author: 'Baraka',
+        rating: 5,
+        comment: 'Loud, clear and the battery lasts a whole party. Bass is surprising for the size.',
+        date: '2024-01-30',
+      },
+      {
+        author: 'Chebet',
+        rating: 4,
+        comment: 'Sounds fantastic. Only wish it had a speakerphone function like older models.',
+        date: '2024-01-22',
+      },
+      {
+        author: 'Juma',
+        rating: 5,
+        comment: 'Took it to the pool, got splashed, no problem. Exactly what I wanted.',
+        date: '2024-01-18',
+      },
+    ],
+    features: ['IP67 Waterproof', '12hr Playtime', 'PartyBoost', 'USB-C Charging'],
+    variants: [
+      {
+        name: 'Colour',
+        type: 'swatch',
+        options: [
+          { label: 'Black', swatch: '#161616', inStock: true },
+          { label: 'Blue', swatch: '#2455a4', inStock: true },
+          { label: 'Red', swatch: '#b5322e', inStock: true },
+          { label: 'Teal', swatch: '#1f7a7a', inStock: false },
+        ],
+      },
+    ],
+    tags: ['bestseller'],
+  },
+  {
+    id: 31,
+    slug: 'oraimo-powerbank-20000',
+    name: 'Oraimo 20,000mAh Power Bank',
+    brand: 'Oraimo',
+    category: 'electronics',
+    price: 3199,
+    compareAtPrice: 3999,
+    description:
+      'Two-phone capacity with fast charging — the power bank that actually holds its rating.',
+    details:
+      'Blackouts and long matatu rides are no match for 20,000mAh of real capacity. Dual USB outputs plus USB-C, 20W fast charging, and an LED gauge so you always know what is left. Slim enough for a jacket pocket, tough enough for the daily commute.',
+    images: [img('oraimo-powerbank-20000', 1), img('oraimo-powerbank-20000', 2)],
+    stock: 120,
+    sold: 340,
+    rating: 4.4,
+    reviews: [
+      {
+        author: 'Faith',
+        rating: 5,
+        comment: 'Charges my phone three times over. Perfect for the power cuts we keep getting.',
+        date: '2024-02-11',
+      },
+      {
+        author: 'Dennis',
+        rating: 4,
+        comment: 'Solid capacity and build. Takes a while to recharge itself but that is expected.',
+        date: '2024-02-05',
+      },
+      {
+        author: 'Wangeci',
+        rating: 3,
+        comment: 'Does the job but it is heavier than I expected. Good value though.',
+        date: '2024-01-29',
+      },
+      {
+        author: 'Salim',
+        rating: 5,
+        comment: 'Oraimo never disappoints. Fast charging works with my Samsung.',
+        date: '2024-01-25',
+      },
+    ],
+    features: ['20,000mAh', '20W Fast Charge', 'Dual USB + USB-C', 'LED Battery Gauge'],
+    tags: ['bestseller'],
+  },
+  {
+    id: 32,
+    slug: 'hisense-43-smart-tv',
+    name: 'Hisense 43" A6 4K Smart TV',
+    brand: 'Hisense',
+    category: 'electronics',
+    price: 37999,
+    compareAtPrice: 42999,
+    description:
+      'A 43-inch 4K panel with VIDAA smart apps built in — Netflix and YouTube out of the box.',
+    details:
+      'A sensible living-room upgrade: crisp 4K resolution, HDR10 for punchier contrast, and the VIDAA platform with the apps most people actually use pre-loaded. Three HDMI ports cover the decoder, console and soundbar. Bezels are thin enough to disappear once the lights go down.',
+    images: [img('hisense-43-smart-tv', 1), img('hisense-43-smart-tv', 2)],
+    stock: 18,
+    sold: 47,
+    rating: 4.3,
+    reviews: [
+      {
+        author: 'Kamau',
+        rating: 5,
+        comment: 'Picture is sharp and setup took ten minutes. Great value for a 4K set.',
+        date: '2024-01-14',
+      },
+      {
+        author: 'Adhiambo',
+        rating: 4,
+        comment: 'Happy with it. The remote feels a bit cheap but the screen itself is excellent.',
+        date: '2024-01-09',
+      },
+      {
+        author: 'Mutua',
+        rating: 3,
+        comment:
+          'Good picture but the built-in speakers are weak — I added a soundbar and now it is perfect.',
+        date: '2024-01-03',
+      },
+    ],
+    features: ['4K UHD', 'HDR10', 'VIDAA Smart OS', '3× HDMI'],
+    tags: ['sale'],
+  },
+  {
+    id: 33,
+    slug: 'anker-nano-charger',
+    name: 'Anker Nano II 65W GaN Charger',
+    brand: 'Anker',
+    category: 'electronics',
+    price: 4499,
+    description:
+      'One tiny brick that fast-charges your laptop, phone and earbuds — GaN keeps it cool.',
+    details:
+      'Gallium-nitride internals shrink a 65W charger to the size of the stock 20W block. Enough to run a MacBook Air, a Dell XPS or two phones at once. The kind of accessory you buy once and stop thinking about — foldable pins, no fan, no fuss.',
+    images: [img('anker-nano-charger', 1), img('anker-nano-charger', 2)],
+    stock: 88,
+    sold: 152,
+    rating: 4.8,
+    reviews: [
+      {
+        author: 'Njeri',
+        rating: 5,
+        comment: 'So small but charges my laptop and phone together. Replaced three chargers with one.',
+        date: '2024-02-19',
+      },
+      {
+        author: 'Omondi',
+        rating: 5,
+        comment: 'Anker quality as always. Travels everywhere with me now.',
+        date: '2024-02-12',
+      },
+      {
+        author: 'Halima',
+        rating: 4,
+        comment: 'Works perfectly. Would have liked a cable included but it is a minor thing.',
+        date: '2024-02-08',
+      },
+    ],
+    features: ['65W Output', 'GaN Technology', 'Foldable Pins', 'Laptop + Phone'],
+    tags: ['new'],
+  },
+  {
+    id: 34,
+    slug: 'galaxy-buds2-pro',
+    name: 'Samsung Galaxy Buds2 Pro',
+    brand: 'Samsung',
+    category: 'electronics',
+    price: 18999,
+    compareAtPrice: 21999,
+    description:
+      'Compact earbuds with genuinely good noise cancellation and 24-bit Hi-Fi audio.',
+    details:
+      'The Buds2 Pro are smaller and lighter than the pair they replace, with intelligent ANC that adapts to your surroundings and 360 Audio for movies. They pair instantly with Galaxy phones and switch between your devices without digging into settings. IPX7 handles a rainy walk or a gym session.',
+    images: [img('galaxy-buds2-pro', 1), img('galaxy-buds2-pro', 2)],
+    stock: 26,
+    sold: 61,
+    rating: 4.5,
+    reviews: [
+      {
+        author: 'Zawadi',
+        rating: 5,
+        comment: 'ANC is excellent on the bus. Fit is comfortable even after hours.',
+        date: '2024-01-27',
+      },
+      {
+        author: 'Kevin',
+        rating: 4,
+        comment: 'Great sound and small case. Battery could be a bit longer with ANC on.',
+        date: '2024-01-21',
+      },
+      {
+        author: 'Wanjiru',
+        rating: 4,
+        comment: 'Love them with my S23. Touch controls take a little getting used to.',
+        date: '2024-01-16',
+      },
+    ],
+    features: ['Adaptive ANC', '24-bit Hi-Fi', 'IPX7 Water Resistant', '360 Audio'],
+    variants: [
+      {
+        name: 'Colour',
+        type: 'swatch',
+        options: [
+          { label: 'Graphite', swatch: '#2b2b2d', inStock: true },
+          { label: 'White', swatch: '#f2f2f0', inStock: true },
+          { label: 'Bora Purple', swatch: '#8a7bb8', inStock: true },
+        ],
+      },
+    ],
+    tags: ['sale'],
+  },
+  {
+    id: 35,
+    slug: 'hp-pavilion-15',
+    name: 'HP Pavilion 15 (Core i5, 16GB)',
+    brand: 'HP',
+    category: 'computing',
+    price: 88999,
+    compareAtPrice: 94999,
+    description:
+      'A dependable everyday laptop — 13th-gen Core i5, 16GB RAM and a fast 512GB SSD.',
+    details:
+      'The Pavilion 15 is the sensible choice for study, work and the occasional Netflix binge. The 13th-gen i5 handles a dozen browser tabs and Office without complaint, 16GB of RAM keeps things smooth, and the 512GB NVMe SSD boots in seconds. A 15.6" Full HD screen and a backlit keyboard round it off.',
+    images: [img('hp-pavilion-15', 1), img('hp-pavilion-15', 2)],
+    stock: 14,
+    sold: 38,
+    rating: 4.4,
+    reviews: [
+      {
+        author: 'Grace',
+        rating: 5,
+        comment: 'Perfect for my accounting work and studies. Fast and the keyboard is comfortable.',
+        date: '2024-02-02',
+      },
+      {
+        author: 'Wafula',
+        rating: 4,
+        comment: 'Good machine for the money. The screen could be brighter but performance is great.',
+        date: '2024-01-24',
+      },
+      {
+        author: 'Mueni',
+        rating: 4,
+        comment: 'Runs everything I need for uni. Battery gets me through most of a day.',
+        date: '2024-01-19',
+      },
+    ],
+    features: ['13th-Gen Core i5', '16GB RAM', '512GB NVMe SSD', '15.6" Full HD'],
+    variants: [
+      {
+        name: 'Storage',
+        type: 'pill',
+        options: [
+          { label: '512GB SSD', inStock: true },
+          { label: '1TB SSD', priceDelta: 9000, inStock: true },
+        ],
+      },
+    ],
+    tags: ['sale'],
+  },
+  {
+    id: 36,
+    slug: 'lenovo-ideapad-3',
+    name: 'Lenovo IdeaPad Slim 3 (Ryzen 5)',
+    brand: 'Lenovo',
+    category: 'computing',
+    price: 61999,
+    description:
+      'A slim, quiet Ryzen 5 laptop that handles daily tasks without breaking a sweat — or the budget.',
+    details:
+      'AMD Ryzen 5 with integrated Radeon graphics gives the IdeaPad Slim 3 more headroom than you would expect at this price. 8GB of RAM and a 512GB SSD keep browsing, documents and video calls snappy. Rapid Charge tops the battery to 80% in under an hour, and the whole thing weighs just 1.6kg.',
+    images: [img('lenovo-ideapad-3', 1), img('lenovo-ideapad-3', 2)],
+    stock: 21,
+    sold: 44,
+    rating: 4.2,
+    reviews: [
+      {
+        author: 'Sila',
+        rating: 4,
+        comment: 'Great starter laptop. Light and quiet. Wish it had 16GB but 8GB is fine for now.',
+        date: '2024-01-31',
+      },
+      {
+        author: 'Atieno',
+        rating: 5,
+        comment: 'Exactly what I needed for online classes. Rapid charge is a nice touch.',
+        date: '2024-01-26',
+      },
+      {
+        author: 'Barasa',
+        rating: 3,
+        comment:
+          'Decent but it slowed down with many tabs open. Upgraded the RAM myself and now it flies.',
+        date: '2024-01-20',
+      },
+    ],
+    features: ['Ryzen 5', '8GB RAM', '512GB SSD', 'Rapid Charge'],
+    tags: ['bestseller'],
+  },
+  {
+    id: 37,
+    slug: 'logitech-mx-master-3s',
+    name: 'Logitech MX Master 3S',
+    brand: 'Logitech',
+    category: 'computing',
+    price: 13499,
+    compareAtPrice: 14999,
+    description:
+      'The mouse serious desk workers swear by — silent clicks, a fast scroll wheel and multi-device flow.',
+    details:
+      'The MX Master 3S refines an already excellent shape: 8K DPI tracking that works on glass, near-silent clicks that spare your open-plan neighbours, and the MagSpeed wheel that switches from ratchet to free-spin automatically. Flow lets you copy on your laptop and paste on your desktop across one cursor.',
+    images: [img('logitech-mx-master-3s', 1), img('logitech-mx-master-3s', 2)],
+    stock: 47,
+    sold: 129,
+    rating: 4.9,
+    reviews: [
+      {
+        author: 'Brian',
+        rating: 5,
+        comment: 'Best mouse I have ever owned. The scroll wheel alone is worth it.',
+        date: '2024-02-14',
+      },
+      {
+        author: 'Njeri',
+        rating: 5,
+        comment: 'Silent clicks are wonderful in a shared office. Battery lasts weeks.',
+        date: '2024-02-07',
+      },
+      {
+        author: 'Kilonzo',
+        rating: 4,
+        comment: 'Excellent ergonomics. A bit pricey but you feel the quality every day.',
+        date: '2024-02-01',
+      },
+    ],
+    features: ['8K DPI Sensor', 'Quiet Clicks', 'MagSpeed Wheel', 'Multi-device Flow'],
+    tags: ['bestseller', 'featured'],
+  },
+  {
+    id: 38,
+    slug: 'samsung-t7-portable-ssd',
+    name: 'Samsung T7 1TB Portable SSD',
+    brand: 'Samsung',
+    category: 'computing',
+    price: 14499,
+    description:
+      'Pocket-sized 1TB storage that moves files at 1,050MB/s — back up a laptop in minutes.',
+    details:
+      'The T7 fits a terabyte into something the size of a credit card and weighs less than a matchbox. USB 3.2 Gen 2 pushes sequential reads to 1,050MB/s, so a folder of RAW photos or a project backup transfers before your coffee cools. A shock-resistant metal body survives being tossed in a bag.',
+    images: [img('samsung-t7-portable-ssd', 1), img('samsung-t7-portable-ssd', 2)],
+    stock: 55,
+    sold: 88,
+    rating: 4.7,
+    reviews: [
+      {
+        author: 'Dennis',
+        rating: 5,
+        comment: 'Blazing fast and tiny. I use it for editing straight off the drive.',
+        date: '2024-01-28',
+      },
+      {
+        author: 'Shiro',
+        rating: 4,
+        comment: 'Fast and reliable. The cable is a little short but works fine.',
+        date: '2024-01-23',
+      },
+      {
+        author: 'Musyoka',
+        rating: 5,
+        comment: 'Backed up my whole laptop in minutes. Feels well made.',
+        date: '2024-01-17',
+      },
+    ],
+    features: ['1TB Capacity', '1,050MB/s Read', 'USB 3.2 Gen 2', 'Shock Resistant'],
+    variants: [
+      {
+        name: 'Capacity',
+        type: 'pill',
+        options: [
+          { label: '1TB', inStock: true },
+          { label: '2TB', priceDelta: 8500, inStock: true },
+        ],
+      },
+    ],
+    tags: ['new'],
+  },
+  {
+    id: 39,
+    slug: 'asus-tuf-gaming-monitor',
+    name: 'ASUS TUF Gaming 27" 165Hz Monitor',
+    brand: 'ASUS',
+    category: 'computing',
+    price: 42999,
+    compareAtPrice: 47999,
+    description:
+      'A 27-inch 165Hz IPS panel with 1ms response — smooth for gaming, sharp for everything else.',
+    details:
+      'The TUF VG27AQ runs at 1440p and 165Hz with a fast IPS panel, so competitive shooters stay fluid and colour work stays accurate. Adaptive-Sync kills tearing, ELMB reduces motion blur, and the stand tilts, swivels and rises. Two HDMI and a DisplayPort cover a console and a PC at once.',
+    images: [img('asus-tuf-gaming-monitor', 1), img('asus-tuf-gaming-monitor', 2)],
+    stock: 12,
+    sold: 29,
+    rating: 4.6,
+    reviews: [
+      {
+        author: 'Kevin',
+        rating: 5,
+        comment: 'Buttery smooth at 165Hz. Colours are great out of the box.',
+        date: '2024-02-06',
+      },
+      {
+        author: 'Onyango',
+        rating: 4,
+        comment: 'Excellent panel. Assembly of the stand was slightly fiddly but nothing bad.',
+        date: '2024-01-30',
+      },
+      {
+        author: 'Chebet',
+        rating: 5,
+        comment: 'Doubles perfectly as a work and gaming monitor. No dead pixels.',
+        date: '2024-01-25',
+      },
+    ],
+    features: ['27" QHD IPS', '165Hz', '1ms Response', 'Adaptive-Sync'],
+    tags: ['sale', 'featured'],
+  },
+  {
+    id: 40,
+    slug: 'tplink-archer-ax55-router',
+    name: 'TP-Link Archer AX55 Wi-Fi 6 Router',
+    brand: 'TP-Link',
+    category: 'computing',
+    price: 8499,
+    description:
+      'Wi-Fi 6 coverage that keeps the whole household streaming without the afternoon slowdown.',
+    details:
+      'The Archer AX55 brings AX3000 Wi-Fi 6 to homes juggling phones, TVs and a work laptop. OFDMA and MU-MIMO share bandwidth intelligently so nobody buffers, four antennas push the signal across a maisonette, and setup takes minutes from the Tether app. Works with any fibre or router-mode ISP line.',
+    images: [img('tplink-archer-ax55-router', 1), img('tplink-archer-ax55-router', 2)],
+    stock: 33,
+    sold: 71,
+    rating: 4.3,
+    reviews: [
+      {
+        author: 'Njoroge',
+        rating: 5,
+        comment: 'Signal reaches every corner of the house now. Easy to set up with Zuku.',
+        date: '2024-02-09',
+      },
+      {
+        author: 'Mercy',
+        rating: 4,
+        comment: 'Big improvement over the ISP router. The app could be more intuitive.',
+        date: '2024-02-03',
+      },
+      {
+        author: 'Kiptoo',
+        rating: 3,
+        comment: 'Works well but I had to reboot it once after a firmware update. Fine since then.',
+        date: '2024-01-27',
+      },
+    ],
+    features: ['Wi-Fi 6 AX3000', '4 Antennas', 'OFDMA + MU-MIMO', 'Tether App Setup'],
+    tags: ['new'],
+  },
+  {
+    id: 41,
+    slug: 'nike-air-force-1',
+    name: "Nike Air Force 1 '07",
+    brand: 'Nike',
+    category: 'fashion',
+    price: 13499,
+    description:
+      'The all-white classic that goes with everything and never looks out of place.',
+    details:
+      'Four decades on, the Air Force 1 is still the safest fresh-out-the-box flex. Full-grain leather keeps its shape, the Air-Sole unit under the heel cushions all-day wear, and the flat sole handles town errands as easily as a weekend fit. Wipe them clean and they look new again.',
+    images: [img('nike-air-force-1', 1), img('nike-air-force-1', 2)],
+    stock: 40,
+    sold: 210,
+    rating: 4.8,
+    reviews: [
+      {
+        author: 'Baraka',
+        rating: 5,
+        comment: 'A classic for a reason. Comfortable and matches everything I own.',
+        date: '2024-02-13',
+      },
+      {
+        author: 'Wanjiru',
+        rating: 5,
+        comment: 'Fit true to size and the leather feels premium. Very happy.',
+        date: '2024-02-08',
+      },
+      {
+        author: 'Juma',
+        rating: 4,
+        comment: 'Great shoe but they show scuffs quickly if you are rough with them.',
+        date: '2024-02-02',
+      },
+      {
+        author: 'Nafula',
+        rating: 5,
+        comment: 'My third pair. They never go out of style. Fast delivery to Eldoret.',
+        date: '2024-01-28',
+      },
+    ],
+    features: ['Full-grain Leather', 'Air-Sole Cushioning', 'Padded Collar', 'Rubber Outsole'],
+    variants: [
+      {
+        name: 'Size (UK)',
+        type: 'pill',
+        options: [
+          { label: 'UK 6', inStock: true },
+          { label: 'UK 7', inStock: true },
+          { label: 'UK 8', inStock: true },
+          { label: 'UK 9', inStock: true },
+          { label: 'UK 10', inStock: false },
+        ],
+      },
+    ],
+    tags: ['bestseller'],
+  },
+  {
+    id: 42,
+    slug: 'puma-suede-classic',
+    name: 'Puma Suede Classic XXI',
+    brand: 'Puma',
+    category: 'fashion',
+    price: 9499,
+    compareAtPrice: 10999,
+    description:
+      'A heritage suede low-top with the fat laces and formstrip that made it famous.',
+    details:
+      'The Suede Classic has looked good since the seventies and still does. Soft suede uppers, a cushioned footbed and a grippy rubber sole make it as comfortable as it is recognisable. Understated enough for the office on a dress-down Friday, characterful enough for the weekend.',
+    images: [img('puma-suede-classic', 1), img('puma-suede-classic', 2)],
+    stock: 28,
+    sold: 84,
+    rating: 4.5,
+    reviews: [
+      {
+        author: 'Otieno',
+        rating: 5,
+        comment: 'Timeless design and comfortable from day one. The suede looks rich.',
+        date: '2024-01-24',
+      },
+      {
+        author: 'Mueni',
+        rating: 4,
+        comment: 'Lovely shoe. Suede needs a protector spray or it marks — otherwise perfect.',
+        date: '2024-01-18',
+      },
+      {
+        author: 'Kamau',
+        rating: 4,
+        comment: 'Good fit, arrived clean and boxed. Runs slightly large so size down.',
+        date: '2024-01-12',
+      },
+    ],
+    features: ['Suede Upper', 'Cushioned Footbed', 'Rubber Outsole', 'Iconic Formstrip'],
+    variants: [
+      {
+        name: 'Size (UK)',
+        type: 'pill',
+        options: [
+          { label: 'UK 6', inStock: true },
+          { label: 'UK 7', inStock: true },
+          { label: 'UK 8', inStock: true },
+          { label: 'UK 9', inStock: false },
+        ],
+      },
+    ],
+    tags: ['sale'],
+  },
+  {
+    id: 43,
+    slug: 'clarks-leather-oxfords',
+    name: 'Clarks Tilden Leather Oxfords',
+    brand: 'Clarks',
+    category: 'fashion',
+    price: 7499,
+    description:
+      'A polished lace-up that carries you from the boardroom to a wedding without a second thought.',
+    details:
+      'Smooth full-grain leather, a lightly cushioned insole and a hard-wearing sole make the Tilden a genuine do-everything formal shoe. Clean lines mean it pairs with a suit or with chinos, and the leather takes a shine beautifully. Buy once, resole later, wear for years.',
+    images: [img('clarks-leather-oxfords', 1), img('clarks-leather-oxfords', 2)],
+    stock: 22,
+    sold: 53,
+    rating: 4.4,
+    reviews: [
+      {
+        author: 'Wafula',
+        rating: 5,
+        comment: 'Smart and comfortable enough to wear all day at the office. Real leather.',
+        date: '2024-02-04',
+      },
+      {
+        author: 'Grace',
+        rating: 4,
+        comment: 'Bought for my husband, he loves them. Took a couple of days to break in.',
+        date: '2024-01-29',
+      },
+      {
+        author: 'Kilonzo',
+        rating: 4,
+        comment: 'Good formal shoe for the price. Wish more sizes were in stock.',
+        date: '2024-01-22',
+      },
+    ],
+    features: ['Full-grain Leather', 'Cushioned Insole', 'Lace-up', 'Durable Sole'],
+    variants: [
+      {
+        name: 'Size (UK)',
+        type: 'pill',
+        options: [
+          { label: 'UK 7', inStock: true },
+          { label: 'UK 8', inStock: true },
+          { label: 'UK 9', inStock: true },
+          { label: 'UK 10', inStock: true },
+        ],
+      },
+      {
+        name: 'Colour',
+        type: 'swatch',
+        options: [
+          { label: 'Black', swatch: '#1a1a1a', inStock: true },
+          { label: 'Tan', swatch: '#9a6b3f', inStock: true },
+        ],
+      },
+    ],
+    tags: ['new'],
+  },
+  {
+    id: 44,
+    slug: 'cotton-oxford-shirt',
+    name: 'Tailored Cotton Oxford Shirt',
+    brand: 'Jibambe Essentials',
+    category: 'fashion',
+    price: 3199,
+    description:
+      'A breathable, wrinkle-resistant oxford that works buttoned-up or open over a tee.',
+    details:
+      'Cut from mid-weight cotton oxford that softens with every wash, this shirt is the wardrobe workhorse you reach for without thinking. A neat collar holds its shape for meetings, while the relaxed body keeps it easy on hot Nairobi afternoons. Machine washable and slow to crease.',
+    images: [img('cotton-oxford-shirt', 1), img('cotton-oxford-shirt', 2)],
+    stock: 64,
+    sold: 118,
+    rating: 4.3,
+    reviews: [
+      {
+        author: 'Njoroge',
+        rating: 4,
+        comment: 'Good quality cotton and the fit is smart. Slightly long in the sleeves for me.',
+        date: '2024-01-26',
+      },
+      {
+        author: 'Achieng',
+        rating: 5,
+        comment: 'Bought two colours. Breathable and easy to iron. Great value.',
+        date: '2024-01-20',
+      },
+      {
+        author: 'Sila',
+        rating: 4,
+        comment: 'Nice shirt for the price. The white is a little thin but fine under a jacket.',
+        date: '2024-01-15',
+      },
+    ],
+    features: ['Cotton Oxford', 'Wrinkle-resistant', 'Machine Washable', 'Regular Fit'],
+    variants: [
+      {
+        name: 'Size',
+        type: 'pill',
+        options: [
+          { label: 'S', inStock: true },
+          { label: 'M', inStock: true },
+          { label: 'L', inStock: true },
+          { label: 'XL', inStock: true },
+        ],
+      },
+      {
+        name: 'Colour',
+        type: 'swatch',
+        options: [
+          { label: 'White', swatch: '#f4f4f2', inStock: true },
+          { label: 'Sky Blue', swatch: '#a9c7e0', inStock: true },
+          { label: 'Charcoal', swatch: '#3a3a3c', inStock: false },
+        ],
+      },
+    ],
+    tags: ['bestseller'],
+  },
+  {
+    id: 45,
+    slug: 'classic-denim-jacket',
+    name: 'Classic Trucker Denim Jacket',
+    brand: 'Jibambe Essentials',
+    category: 'fashion',
+    price: 4799,
+    compareAtPrice: 5599,
+    description:
+      'A rigid-then-lived-in denim jacket that only looks better the more you wear it.',
+    details:
+      'Built on the timeless trucker silhouette with a mid-wash that suits every skin tone. Sturdy cotton denim, button front, chest flap pockets and a hem that sits right whether it is over a hoodie or a dress. Wears in over a season into something that feels uniquely yours.',
+    images: [img('classic-denim-jacket', 1), img('classic-denim-jacket', 2)],
+    stock: 31,
+    sold: 67,
+    rating: 4.6,
+    reviews: [
+      {
+        author: 'Zawadi',
+        rating: 5,
+        comment: 'Perfect mid-wash and the denim is thick and good quality. Layers over everything.',
+        date: '2024-02-10',
+      },
+      {
+        author: 'Dennis',
+        rating: 4,
+        comment: 'Nice jacket, true to size. Stiff at first but softening up nicely.',
+        date: '2024-02-04',
+      },
+      {
+        author: 'Nyambura',
+        rating: 5,
+        comment: 'Chilly Nairobi evenings sorted. Looks more expensive than it was.',
+        date: '2024-01-30',
+      },
+    ],
+    features: ['Cotton Denim', 'Button Front', 'Chest Pockets', 'Unisex Cut'],
+    variants: [
+      {
+        name: 'Size',
+        type: 'pill',
+        options: [
+          { label: 'S', inStock: true },
+          { label: 'M', inStock: true },
+          { label: 'L', inStock: true },
+          { label: 'XL', inStock: false },
+        ],
+      },
+    ],
+    tags: ['sale'],
+  },
+  {
+    id: 46,
+    slug: 'canvas-daypack-backpack',
+    name: 'Water-resistant Canvas Daypack',
+    brand: 'Jibambe Essentials',
+    category: 'fashion',
+    price: 3499,
+    description:
+      'A 20L canvas backpack with a padded laptop sleeve — commute, campus or a weekend away.',
+    details:
+      'Tough waxed canvas shrugs off a light shower, while a padded 15" sleeve keeps a laptop safe on the matatu. Roomy main compartment, a quick-access front pocket and comfortable padded straps. The kind of everyday bag that quietly does its job for years.',
+    images: [img('canvas-daypack-backpack', 1), img('canvas-daypack-backpack', 2)],
+    stock: 45,
+    sold: 92,
+    rating: 4.5,
+    reviews: [
+      {
+        author: 'Mercy',
+        rating: 5,
+        comment: 'Sturdy and roomy. My laptop fits perfectly and the canvas feels premium.',
+        date: '2024-01-25',
+      },
+      {
+        author: 'Barasa',
+        rating: 4,
+        comment: 'Good bag for daily use. Would prefer a couple more internal pockets.',
+        date: '2024-01-19',
+      },
+      {
+        author: 'Halima',
+        rating: 4,
+        comment: 'Survived a rainy day and the contents stayed dry. Comfortable straps.',
+        date: '2024-01-14',
+      },
+    ],
+    features: ['20L Capacity', 'Padded Laptop Sleeve', 'Water-resistant', 'Padded Straps'],
+    variants: [
+      {
+        name: 'Colour',
+        type: 'swatch',
+        options: [
+          { label: 'Olive', swatch: '#5c6046', inStock: true },
+          { label: 'Charcoal', swatch: '#33343a', inStock: true },
+          { label: 'Sand', swatch: '#c8b487', inStock: true },
+        ],
+      },
+    ],
+    tags: ['new'],
+  },
+  {
+    id: 47,
+    slug: 'ankara-wrap-dress',
+    name: 'Ankara Print Wrap Dress',
+    brand: 'Sanaa',
+    category: 'fashion',
+    price: 4299,
+    description:
+      'A flattering wrap dress in vivid Ankara print — made to be noticed from church to brunch.',
+    details:
+      'Cut from genuine wax-print cotton with bold, saturated colour that holds up wash after wash. The wrap silhouette flatters every figure and adjusts to fit, while the breathable fabric keeps you cool through a long day. Each run of print is limited, so no two batches look quite the same.',
+    images: [img('ankara-wrap-dress', 1), img('ankara-wrap-dress', 2)],
+    stock: 27,
+    sold: 74,
+    rating: 4.7,
+    reviews: [
+      {
+        author: 'Achieng',
+        rating: 5,
+        comment: 'The print is even more beautiful in person. So many compliments at the wedding.',
+        date: '2024-02-11',
+      },
+      {
+        author: 'Wangeci',
+        rating: 5,
+        comment: 'Fits perfectly and the fabric is proper wax print. Will buy again.',
+        date: '2024-02-05',
+      },
+      {
+        author: 'Naliaka',
+        rating: 4,
+        comment: 'Gorgeous dress. The wrap needed a small safety pin to sit exactly how I wanted.',
+        date: '2024-01-29',
+      },
+    ],
+    features: ['Genuine Wax Print', 'Wrap Silhouette', 'Breathable Cotton', 'Adjustable Fit'],
+    variants: [
+      {
+        name: 'Size',
+        type: 'pill',
+        options: [
+          { label: 'S', inStock: true },
+          { label: 'M', inStock: true },
+          { label: 'L', inStock: true },
+          { label: 'XL', inStock: true },
+        ],
+      },
+    ],
+    tags: ['bestseller', 'featured'],
+  },
+  {
+    id: 48,
+    slug: 'ramtons-cordless-kettle',
+    name: 'Ramtons 1.7L Cordless Kettle',
+    brand: 'Ramtons',
+    category: 'home',
+    price: 2799,
+    description:
+      'A fast-boil stainless kettle with auto shut-off — the first thing that goes on every morning.',
+    details:
+      'A 2200W element brings 1.7 litres to a rolling boil quickly, so tea and uji do not keep you waiting. The 360° cordless base makes pouring easy for right or left hand, and auto shut-off plus boil-dry protection means peace of mind. Brushed stainless resists fingerprints and wipes clean.',
+    images: [img('ramtons-cordless-kettle', 1), img('ramtons-cordless-kettle', 2)],
+    stock: 78,
+    sold: 203,
+    rating: 4.4,
+    reviews: [
+      {
+        author: 'Faith',
+        rating: 5,
+        comment: 'Boils fast and looks good on the counter. Ramtons is reliable as always.',
+        date: '2024-01-28',
+      },
+      {
+        author: 'Kamau',
+        rating: 4,
+        comment: 'Does the job well. The lid is a little stiff to open but nothing major.',
+        date: '2024-01-22',
+      },
+      {
+        author: 'Atieno',
+        rating: 4,
+        comment: 'Good value kettle. Auto shut-off works properly which is what matters.',
+        date: '2024-01-16',
+      },
+    ],
+    features: ['1.7L Capacity', '2200W Fast Boil', 'Auto Shut-off', '360° Cordless Base'],
+    tags: ['bestseller'],
+  },
+  {
+    id: 49,
+    slug: 'von-solo-microwave',
+    name: 'Von 20L Solo Microwave',
+    brand: 'Von',
+    category: 'home',
+    price: 12499,
+    compareAtPrice: 13999,
+    description:
+      'A compact 20-litre microwave that reheats, defrosts and cooks without dominating the counter.',
+    details:
+      'Five power levels and a 35-minute timer cover everything from a quick reheat to defrosting nyama for dinner. The 20-litre cavity fits a standard dinner plate, controls are simple dials anyone in the house can use, and a child-lock keeps little hands out. Neat footprint for a small kitchen or bedsitter.',
+    images: [img('von-solo-microwave', 1), img('von-solo-microwave', 2)],
+    stock: 24,
+    sold: 51,
+    rating: 4.2,
+    reviews: [
+      {
+        author: 'Mueni',
+        rating: 4,
+        comment: 'Perfect size for my apartment. Heats evenly and the dials are easy to use.',
+        date: '2024-02-01',
+      },
+      {
+        author: 'Omondi',
+        rating: 5,
+        comment: 'Great little microwave. Does everything I need and looks smart.',
+        date: '2024-01-26',
+      },
+      {
+        author: 'Chebet',
+        rating: 3,
+        comment: 'Works fine but the timer bell is very loud. Otherwise no complaints.',
+        date: '2024-01-20',
+      },
+    ],
+    features: ['20L Capacity', '5 Power Levels', '35-min Timer', 'Child Lock'],
+    tags: ['sale'],
+  },
+  {
+    id: 50,
+    slug: 'nunix-blender-grinder',
+    name: 'Nunix 2-in-1 Blender & Grinder',
+    brand: 'Nunix',
+    category: 'home',
+    price: 3799,
+    description:
+      'A 1.5L glass-jug blender with a dry mill — smoothies, soups and pilau masala from one machine.',
+    details:
+      'Stainless steel blades and a sturdy motor handle everything from morning smoothies to blending tomatoes for a stew. The 1.5-litre glass jug does not stain or hold odours, and the included dry mill grinds spices, coffee and njugu. Two speeds plus pulse give you control over texture.',
+    images: [img('nunix-blender-grinder', 1), img('nunix-blender-grinder', 2)],
+    stock: 60,
+    sold: 137,
+    rating: 4.1,
+    reviews: [
+      {
+        author: 'Grace',
+        rating: 5,
+        comment: 'Blends smoothies well and the grinder is perfect for spices. Great price.',
+        date: '2024-01-24',
+      },
+      {
+        author: 'Wafula',
+        rating: 4,
+        comment: 'Good for the money. The jug is glass which I prefer to plastic.',
+        date: '2024-01-18',
+      },
+      {
+        author: 'Naliaka',
+        rating: 3,
+        comment:
+          'Works but it struggles with very hard items like ice. Fine for everyday blending.',
+        date: '2024-01-13',
+      },
+      {
+        author: 'Musyoka',
+        rating: 4,
+        comment: 'Handy 2-in-1. The dry mill is louder than the blender but effective.',
+        date: '2024-01-08',
+      },
+    ],
+    features: ['1.5L Glass Jug', 'Dry Grinding Mill', 'Stainless Blades', '2 Speeds + Pulse'],
+    tags: ['bestseller'],
+  },
+  {
+    id: 51,
+    slug: 'nonstick-cookware-set',
+    name: '7-Piece Non-stick Cookware Set',
+    brand: 'Tramontina',
+    category: 'home',
+    price: 6899,
+    compareAtPrice: 7999,
+    description:
+      'A matched set of non-stick pans that cook evenly and clean up with a wipe.',
+    details:
+      'Everything a starter kitchen needs: two frying pans, two saucepans with lids and a stockpot, all with a durable non-stick coating that lets you cook with less oil. Even heat distribution means no hot spots, and stay-cool handles make serving safe. Compatible with gas and electric hobs.',
+    images: [img('nonstick-cookware-set', 1), img('nonstick-cookware-set', 2)],
+    stock: 36,
+    sold: 79,
+    rating: 4.3,
+    reviews: [
+      {
+        author: 'Njeri',
+        rating: 5,
+        comment: 'Nothing sticks and washing up is effortless. Great starter set for my new place.',
+        date: '2024-02-07',
+      },
+      {
+        author: 'Kilonzo',
+        rating: 4,
+        comment: 'Good quality for the price. Use wooden spoons to keep the coating nice.',
+        date: '2024-02-01',
+      },
+      {
+        author: 'Adhiambo',
+        rating: 4,
+        comment: 'Cooks evenly. The stockpot lid could fit a little more snugly.',
+        date: '2024-01-26',
+      },
+    ],
+    features: ['7 Pieces', 'Non-stick Coating', 'Even Heat', 'Gas + Electric Hobs'],
+    tags: ['sale'],
+  },
+  {
+    id: 52,
+    slug: 'handwoven-throw-blanket',
+    name: 'Hand-woven Cotton Throw Blanket',
+    brand: 'Sanaa',
+    category: 'home',
+    price: 2399,
+    description:
+      'A soft, breathable throw with a woven fringe — the finishing touch for a sofa or bed.',
+    details:
+      'Woven from soft cotton in warm, earthy tones that suit any room, this throw is light enough for a warm night yet cosy on a cold Limuru evening. The tasselled fringe adds texture, and the tight weave means it wears well and washes easily. Equally at home draped over a couch or a reading chair.',
+    images: [img('handwoven-throw-blanket', 1), img('handwoven-throw-blanket', 2)],
+    stock: 52,
+    sold: 64,
+    rating: 4.6,
+    reviews: [
+      {
+        author: 'Wanjiru',
+        rating: 5,
+        comment: 'So soft and the colours are gorgeous. Ties my living room together perfectly.',
+        date: '2024-01-29',
+      },
+      {
+        author: 'Baraka',
+        rating: 4,
+        comment: 'Good quality weave. Slightly thinner than I imagined but very cosy.',
+        date: '2024-01-23',
+      },
+      {
+        author: 'Zawadi',
+        rating: 5,
+        comment: 'Washes well and stays soft. Bought a second one as a gift.',
+        date: '2024-01-17',
+      },
+    ],
+    features: ['Soft Cotton', 'Tasselled Fringe', 'Machine Washable', '130 × 170cm'],
+    variants: [
+      {
+        name: 'Colour',
+        type: 'swatch',
+        options: [
+          { label: 'Terracotta', swatch: '#b56a4a', inStock: true },
+          { label: 'Sand', swatch: '#cbb78f', inStock: true },
+          { label: 'Slate', swatch: '#5a6068', inStock: true },
+        ],
+      },
+    ],
+    tags: ['new'],
+  },
+  {
+    id: 53,
+    slug: 'ceramic-dinner-set-16pc',
+    name: '16-Piece Ceramic Dinner Set',
+    brand: 'Luminarc',
+    category: 'home',
+    price: 5499,
+    description:
+      'Service for four in chip-resistant ceramic — plates, bowls and mugs that match for once.',
+    details:
+      'A complete 16-piece service: four each of dinner plates, side plates, bowls and mugs. The glazed ceramic resists chips and scratches, keeps its colour through the dishwasher, and the clean, rounded shapes suit an everyday table or guests. Stacks neatly so it does not swallow your cupboard.',
+    images: [img('ceramic-dinner-set-16pc', 1), img('ceramic-dinner-set-16pc', 2)],
+    stock: 29,
+    sold: 58,
+    rating: 4.4,
+    reviews: [
+      {
+        author: 'Mercy',
+        rating: 5,
+        comment: 'Beautiful set and everything matches. Survived a drop onto the tile floor.',
+        date: '2024-02-08',
+      },
+      {
+        author: 'Onyango',
+        rating: 4,
+        comment: 'Good weight and finish. One mug arrived with a tiny glaze mark but usable.',
+        date: '2024-02-02',
+      },
+      {
+        author: 'Nafula',
+        rating: 4,
+        comment: 'Nice everyday dinnerware. Dishwasher safe as promised.',
+        date: '2024-01-27',
+      },
+    ],
+    features: ['16 Pieces', 'Service for 4', 'Chip-resistant', 'Dishwasher Safe'],
+    tags: ['bestseller'],
+  },
+  {
+    id: 54,
+    slug: 'led-architect-desk-lamp',
+    name: 'LED Architect Desk Lamp',
+    brand: 'Xiaomi',
+    category: 'home',
+    price: 2199,
+    description:
+      'An adjustable LED lamp with warm-to-cool dimming — kinder on the eyes for late study sessions.',
+    details:
+      'A weighted base and articulated arm let you put the light exactly where you need it, while three colour temperatures and stepless dimming take it from warm reading light to bright, focused white for detailed work. Flicker-free LEDs reduce eye strain, and a USB charging port on the base tops up your phone.',
+    images: [img('led-architect-desk-lamp', 1), img('led-architect-desk-lamp', 2)],
+    stock: 66,
+    sold: 101,
+    rating: 4.5,
+    reviews: [
+      {
+        author: 'Dennis',
+        rating: 5,
+        comment: 'Great for late-night studying. The warm setting is easy on the eyes.',
+        date: '2024-01-30',
+      },
+      {
+        author: 'Shiro',
+        rating: 4,
+        comment: 'Sturdy and bright. The USB port is a nice bonus for charging my phone.',
+        date: '2024-01-24',
+      },
+      {
+        author: 'Kevin',
+        rating: 4,
+        comment: 'Good lamp. The touch controls are a little sensitive but you get used to them.',
+        date: '2024-01-19',
+      },
+    ],
+    features: ['3 Colour Temperatures', 'Stepless Dimming', 'Flicker-free', 'USB Charging Port'],
+    tags: ['new'],
+  },
+  {
+    id: 55,
+    slug: 'nivea-cocoa-body-lotion',
+    name: 'Nivea Cocoa Nourish Body Lotion 400ml',
+    brand: 'Nivea',
+    category: 'beauty',
+    price: 849,
+    description:
+      'A rich cocoa-butter lotion that keeps dry skin soft and glowing for 48 hours.',
+    details:
+      'Deep Nourish Serum and cocoa butter sink in fast without a greasy film, so skin feels supple from morning through the day. Formulated for normal to dry skin, it is gentle enough for daily use over the whole body. The 400ml pump bottle lasts and lives easily on a bathroom shelf.',
+    images: [img('nivea-cocoa-body-lotion', 1), img('nivea-cocoa-body-lotion', 2)],
+    stock: 140,
+    sold: 412,
+    rating: 4.6,
+    reviews: [
+      {
+        author: 'Achieng',
+        rating: 5,
+        comment: 'Keeps my skin soft all day and smells lovely. My go-to lotion.',
+        date: '2024-02-12',
+      },
+      {
+        author: 'Halima',
+        rating: 5,
+        comment: 'Absorbs quickly, no greasy feeling. The pump bottle is convenient.',
+        date: '2024-02-06',
+      },
+      {
+        author: 'Mueni',
+        rating: 4,
+        comment: 'Good everyday lotion. Wish the cocoa scent lasted a little longer.',
+        date: '2024-01-31',
+      },
+    ],
+    features: ['Cocoa Butter', '48h Moisture', 'Fast-absorbing', '400ml Pump'],
+    tags: ['bestseller'],
+  },
+  {
+    id: 56,
+    slug: 'maybelline-sky-high-mascara',
+    name: 'Maybelline Lash Sensational Sky High Mascara',
+    brand: 'Maybelline',
+    category: 'beauty',
+    price: 1449,
+    description:
+      'The cult mascara that lengthens and lifts without clumping — lashes to the sky.',
+    details:
+      'A flexible bendable brush reaches every lash from root to tip, while the bamboo-extract formula builds length and volume that holds all day. Buildable, smudge-resistant and easy to remove with warm water. The mascara that earned its hype and keeps earning it.',
+    images: [img('maybelline-sky-high-mascara', 1), img('maybelline-sky-high-mascara', 2)],
+    stock: 95,
+    sold: 268,
+    rating: 4.7,
+    reviews: [
+      {
+        author: 'Wangeci',
+        rating: 5,
+        comment: 'Lives up to the hype. Length and no clumps. My lashes look amazing.',
+        date: '2024-02-10',
+      },
+      {
+        author: 'Naliaka',
+        rating: 5,
+        comment: 'Holds all day and washes off easily. Repurchasing for sure.',
+        date: '2024-02-04',
+      },
+      {
+        author: 'Chebet',
+        rating: 4,
+        comment: 'Great lengthening but it can transfer slightly under my eyes by evening.',
+        date: '2024-01-29',
+      },
+    ],
+    features: ['Flexible Brush', 'Buildable Length', 'Smudge-resistant', 'Washes Off Easily'],
+    tags: ['bestseller', 'featured'],
+  },
+  {
+    id: 57,
+    slug: 'cerave-moisturising-cream',
+    name: 'CeraVe Moisturising Cream 340g',
+    brand: 'CeraVe',
+    category: 'beauty',
+    price: 2599,
+    description:
+      'A dermatologist-favourite cream with ceramides and hyaluronic acid for lasting hydration.',
+    details:
+      'Developed with dermatologists, this rich cream restores the skin barrier with three essential ceramides and draws in moisture with hyaluronic acid. Fragrance-free and non-comedogenic, it suits sensitive, dry and eczema-prone skin on face and body. MVE technology releases hydration gradually through the day.',
+    images: [img('cerave-moisturising-cream', 1), img('cerave-moisturising-cream', 2)],
+    stock: 72,
+    sold: 156,
+    rating: 4.8,
+    reviews: [
+      {
+        author: 'Faith',
+        rating: 5,
+        comment: 'Cleared up my dry patches within a week. Fragrance-free which my skin loves.',
+        date: '2024-02-09',
+      },
+      {
+        author: 'Atieno',
+        rating: 5,
+        comment: 'A little goes a long way. The tub will last me months. Worth every shilling.',
+        date: '2024-02-03',
+      },
+      {
+        author: 'Nyambura',
+        rating: 4,
+        comment: 'Great for dry skin. The tub is a bit unhygienic to dip into but the cream is superb.',
+        date: '2024-01-28',
+      },
+    ],
+    features: ['3 Ceramides', 'Hyaluronic Acid', 'Fragrance-free', 'Non-comedogenic'],
+    tags: ['featured'],
+  },
+  {
+    id: 58,
+    slug: 'dior-sauvage-edp',
+    name: 'Dior Sauvage Eau de Parfum 100ml',
+    brand: 'Dior',
+    category: 'beauty',
+    price: 12499,
+    compareAtPrice: 14500,
+    description:
+      'A bold, long-lasting fragrance with bergamot and ambroxan — an all-day signature scent.',
+    details:
+      'Sauvage opens with radiant Calabrian bergamot and settles into a warm, woody ambroxan trail that lingers for hours. Versatile enough for the office and striking enough for the evening, it has become a modern classic for good reason. The 100ml bottle is generous and instantly recognisable.',
+    images: [img('dior-sauvage-edp', 1), img('dior-sauvage-edp', 2)],
+    stock: 19,
+    sold: 43,
+    rating: 4.7,
+    reviews: [
+      {
+        author: 'Omondi',
+        rating: 5,
+        comment: 'Lasts the whole day and gets compliments everywhere. Authentic, boxed and sealed.',
+        date: '2024-02-05',
+      },
+      {
+        author: 'Salim',
+        rating: 5,
+        comment: 'My signature scent now. Projects well without being overpowering.',
+        date: '2024-01-30',
+      },
+      {
+        author: 'Kamau',
+        rating: 4,
+        comment: 'Excellent fragrance. Pricey but a little lasts, so the bottle goes far.',
+        date: '2024-01-24',
+      },
+    ],
+    features: ['Bergamot + Ambroxan', 'Eau de Parfum', 'Long-lasting', '100ml'],
+    tags: ['sale', 'featured'],
+  },
+  {
+    id: 59,
+    slug: 'shea-moisture-hair-kit',
+    name: 'Shea Butter Curl Care Hair Kit',
+    brand: 'Shea Moisture',
+    category: 'beauty',
+    price: 1899,
+    description:
+      'A shampoo, conditioner and curl cream trio that defines coils and tames the frizz.',
+    details:
+      'Formulated for natural and coily hair, this three-step kit cleanses without stripping, deep-conditions with raw shea butter, and defines curls with a lightweight cream that holds without crunch. Sulphate-free and rich in coconut oil, it leaves hair soft, springy and manageable wash after wash.',
+    images: [img('shea-moisture-hair-kit', 1), img('shea-moisture-hair-kit', 2)],
+    stock: 58,
+    sold: 129,
+    rating: 4.5,
+    reviews: [
+      {
+        author: 'Adhiambo',
+        rating: 5,
+        comment: 'My curls have never been so defined. The shea butter smell is heavenly.',
+        date: '2024-02-08',
+      },
+      {
+        author: 'Zawadi',
+        rating: 4,
+        comment: 'Lovely kit. The curl cream is great, a little heavy if you use too much.',
+        date: '2024-02-02',
+      },
+      {
+        author: 'Nafula',
+        rating: 5,
+        comment: 'Sulphate-free and gentle. My hair feels soft and moisturised.',
+        date: '2024-01-27',
+      },
+    ],
+    features: ['Raw Shea Butter', 'Sulphate-free', '3-Step Kit', 'For Coily Hair'],
+    tags: ['bestseller'],
+  },
+  {
+    id: 60,
+    slug: 'adjustable-dumbbell-pair',
+    name: 'Adjustable Dumbbell Pair (2 × 20kg)',
+    brand: 'Jibambe Fit',
+    category: 'sports',
+    price: 14999,
+    compareAtPrice: 17500,
+    description:
+      'A full rack of dumbbells in one pair — dial from 2kg to 20kg without cluttering the room.',
+    details:
+      'Each dumbbell adjusts from 2kg to 20kg with a quick turn of the dial, replacing fifteen fixed pairs and freeing up your home gym. Secure locking plates stay put mid-set, a knurled handle keeps your grip through sweaty reps, and the storage tray keeps everything tidy. Sold as a pair.',
+    images: [img('adjustable-dumbbell-pair', 1), img('adjustable-dumbbell-pair', 2)],
+    stock: 16,
+    sold: 37,
+    rating: 4.5,
+    reviews: [
+      {
+        author: 'Kiptoo',
+        rating: 5,
+        comment: 'Saved so much space in my apartment gym. The dial mechanism feels secure.',
+        date: '2024-02-06',
+      },
+      {
+        author: 'Brian',
+        rating: 4,
+        comment: 'Great range of weights. They are a bit bulky but that is the trade-off.',
+        date: '2024-01-31',
+      },
+      {
+        author: 'Mutua',
+        rating: 4,
+        comment: 'Solid build. Changing weight is quick once you get the hang of it.',
+        date: '2024-01-25',
+      },
+    ],
+    features: ['2–20kg per Dumbbell', 'Quick-dial Adjust', 'Knurled Grip', 'Storage Trays'],
+    tags: ['sale'],
+  },
+  {
+    id: 61,
+    slug: 'resistance-bands-set',
+    name: '5-Piece Resistance Bands Set',
+    brand: 'Jibambe Fit',
+    category: 'sports',
+    price: 1799,
+    description:
+      'Five colour-coded bands from light to extra-heavy — a whole gym that fits in a drawer.',
+    details:
+      'From rehab to serious resistance, the five stacking bands cover 5kg to 50kg of tension. Natural latex resists snapping, the colour coding makes it easy to progress, and the included door anchor, handles and ankle straps turn any room into a training space. A carry pouch makes them travel-ready.',
+    images: [img('resistance-bands-set', 1), img('resistance-bands-set', 2)],
+    stock: 84,
+    sold: 176,
+    rating: 4.4,
+    reviews: [
+      {
+        author: 'Chebet',
+        rating: 5,
+        comment: 'Perfect for home workouts and travel. The door anchor works surprisingly well.',
+        date: '2024-02-04',
+      },
+      {
+        author: 'Juma',
+        rating: 4,
+        comment: 'Good set for the price. The handles could be a little more padded.',
+        date: '2024-01-29',
+      },
+      {
+        author: 'Wanjiru',
+        rating: 4,
+        comment: 'Great for physio exercises. Colour coding makes it easy to know the resistance.',
+        date: '2024-01-23',
+      },
+    ],
+    features: ['5 Bands (5–50kg)', 'Natural Latex', 'Door Anchor + Handles', 'Carry Pouch'],
+    tags: ['bestseller'],
+  },
+  {
+    id: 62,
+    slug: 'molten-fifa-football',
+    name: 'Molten FIFA Quality Football (Size 5)',
+    brand: 'Molten',
+    category: 'sports',
+    price: 3199,
+    description:
+      'A match-grade size 5 ball with a true flight and a tough stitched panel construction.',
+    details:
+      'Built for real matches, this FIFA Quality ball holds its shape and pressure through hard use on grass or the estate pitch. The textured surface grips in the wet, the stitched panels stay round after countless shots, and the latex bladder keeps a consistent bounce. Inflate and play.',
+    images: [img('molten-fifa-football', 1), img('molten-fifa-football', 2)],
+    stock: 62,
+    sold: 148,
+    rating: 4.6,
+    reviews: [
+      {
+        author: 'Baraka',
+        rating: 5,
+        comment: 'Proper match ball. Holds air well and flies true. The boys love it.',
+        date: '2024-02-07',
+      },
+      {
+        author: 'Onyango',
+        rating: 4,
+        comment: 'Good quality for weekend games. Survives our rough estate pitch well.',
+        date: '2024-02-01',
+      },
+      {
+        author: 'Kilonzo',
+        rating: 5,
+        comment: 'Better than balls costing twice as much. Stitching is holding up nicely.',
+        date: '2024-01-26',
+      },
+    ],
+    features: ['FIFA Quality', 'Size 5', 'Stitched Panels', 'Latex Bladder'],
+    tags: ['bestseller'],
   },
 ];
 
