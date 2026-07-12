@@ -6,6 +6,7 @@ import { products, productBySlug } from '@/data/products';
 import { categoryBySlug } from '@/data/categories';
 import { relatedProducts } from '@/lib/catalog';
 import { formatKsh } from '@/lib/currency';
+import { FREE_SHIPPING_THRESHOLD } from '@/lib/cart';
 import { ProductGallery } from '@/components/product/product-gallery';
 import { BuyBox } from '@/components/product/buy-box';
 import { Reviews } from '@/components/product/reviews';
@@ -146,8 +147,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
       {/* Trust footnote */}
       <p className="mt-10 text-center text-sm text-ink-subtle">
-        Price shown in Kenyan Shillings ({formatKsh(product.price)}). Demo store — no real
-        transactions are processed.
+        Price shown in Kenyan Shillings ({formatKsh(product.price)}), VAT included. Free delivery
+        on orders over {formatKsh(FREE_SHIPPING_THRESHOLD)}.
       </p>
     </div>
   );
