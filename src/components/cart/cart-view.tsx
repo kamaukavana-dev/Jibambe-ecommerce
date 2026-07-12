@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Skeleton } from '@/components/ui/skeleton';
 import { OrderSummary } from '@/components/checkout/order-summary';
+import { CouponField } from '@/components/cart/coupon-field';
 
 /**
  * Full cart page. Guards against SSR/hydration mismatch (localStorage-backed)
@@ -90,11 +91,19 @@ export function CartView() {
                 </button>
               </div>
               <div className="mt-auto flex items-center justify-between pt-3">
-                <QuantityStepper
-                  value={line.quantity}
-                  onChange={(q) => setQuantity(line.lineKey, q)}
-                  max={99}
-                />
+                <div>
+                  <QuantityStepper
+                    value={line.quantity}
+                    onChange={(q) => setQuantity(line.lineKey, q)}
+                    max={line.maxStock}
+                    label={`Quantity for ${line.name}`}
+                  />
+                  {line.quantity >= line.maxStock && (
+                    <p className="mt-1 text-xs text-ink-subtle">
+                      Max available: {line.maxStock}
+                    </p>
+                  )}
+                </div>
                 <span className="font-semibold tabular-nums text-ink">
                   {formatKsh(line.unitPrice * line.quantity)}
                 </span>
@@ -105,7 +114,18 @@ export function CartView() {
       </ul>
 
       <div className="lg:sticky lg:top-40 lg:self-start">
-        <OrderSummary totals={totals} />
+        <OrderSummary totals={totals}>
+          {totals.freeShippingRemaining > 0 ? (
+            <p className="mt-3 rounded bg-surface-sunken px-3 py-2 text-xs text-ink-muted">
+              Add {formatKsh(totals.freeShippingRemaining)} more for free delivery.
+            </p>
+          ) : (
+            <p className="mt-3 rounded bg-success-subtle px-3 py-2 text-xs font-medium text-success">
+              You’ve unlocked free delivery.
+            </p>
+          )}
+        </OrderSummary>
+        <CouponField />
         <Button asChild size="lg" className="mt-4 w-full">
           <Link href="/checkout/shipping">
             Proceed to checkout

@@ -8,6 +8,8 @@ import {
   computeTotals,
   buildLineKey,
   clampQuantity,
+  findCoupon,
+  discountFor,
   FREE_SHIPPING_THRESHOLD,
   FLAT_SHIPPING_FEE,
 } from '@/lib/cart';
@@ -20,6 +22,7 @@ const line = (over: Partial<CartLine> = {}): CartLine => ({
   unitPrice: 1000,
   quantity: 1,
   lineKey: '1',
+  maxStock: 99,
   ...over,
 });
 
@@ -114,5 +117,63 @@ describe('clampQuantity', () => {
   it('floors fractional input and handles NaN', () => {
     expect(clampQuantity(3.9, 10)).toBe(3);
     expect(clampQuantity(Number.NaN, 10)).toBe(1);
+  });
+});
+
+describe('findCoupon', () => {
+  it('matches case-insensitively and trims whitespace', () => {
+    expect(findCoupon('  jibambe10 ')?.code).toBe('JIBAMBE10');
+    expect(findCoupon('KARIBU500')?.code).toBe('KARIBU500');
+  });
+  it('returns undefined for an unknown code', () => {
+    expect(findCoupon('NOTREAL')).toBeUndefined();
+  });
+});
+
+describe('discountFor', () => {
+  const percent = findCoupon('JIBAMBE10')!; // 10% off
+  const fixed = findCoupon('KARIBU500')!; // 500 off over 10,000
+
+  it('applies a percentage discount', () => {
+    expect(discountFor(20000, percent)).toBe(2000);
+  });
+  it('applies a fixed discount once the minimum is met', () => {
+    expect(discountFor(10000, fixed)).toBe(500);
+  });
+  it('yields nothing below the coupon minimum', () => {
+    expect(discountFor(9999, fixed)).toBe(0);
+  });
+  it('is zero with no coupon or an empty cart', () => {
+    expect(discountFor(20000, null)).toBe(0);
+    expect(discountFor(0, percent)).toBe(0);
+  });
+  it('never exceeds the subtotal', () => {
+    expect(discountFor(300, fixed && { ...fixed, minSubtotal: 0 })).toBe(300);
+  });
+});
+
+describe('computeTotals with a coupon', () => {
+  it('subtracts the discount from the total and reports the code', () => {
+    const lines = [line({ unitPrice: 20000, quantity: 1 })];
+    const t = computeTotals(lines, findCoupon('JIBAMBE10'));
+    expect(t.discount).toBe(2000);
+    expect(t.couponCode).toBe('JIBAMBE10');
+    // 20,000 subtotal - 2,000 discount + flat shipping (below 50k threshold).
+    expect(t.total).toBe(20000 - 2000 + FLAT_SHIPPING_FEE);
+  });
+
+  it('judges free shipping on the pre-discount subtotal', () => {
+    // A coupon must not knock the order back under the delivery threshold.
+    const lines = [line({ unitPrice: FREE_SHIPPING_THRESHOLD, quantity: 1 })];
+    const t = computeTotals(lines, findCoupon('JIBAMBE10'));
+    expect(t.shipping).toBe(0);
+  });
+
+  it('ignores an ineligible coupon (below minimum) — no discount, no code', () => {
+    const lines = [line({ unitPrice: 5000, quantity: 1 })];
+    const t = computeTotals(lines, findCoupon('KARIBU500'));
+    expect(t.discount).toBe(0);
+    expect(t.couponCode).toBeUndefined();
+    expect(t.total).toBe(5000 + FLAT_SHIPPING_FEE);
   });
 });

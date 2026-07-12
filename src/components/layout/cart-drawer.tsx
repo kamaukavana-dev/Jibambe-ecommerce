@@ -113,7 +113,8 @@ export function CartDrawer() {
                     <QuantityStepper
                       value={line.quantity}
                       onChange={(q) => setQuantity(line.lineKey, q)}
-                      max={99}
+                      max={line.maxStock}
+                      label={`Quantity for ${line.name}`}
                       className="h-9"
                     />
                     <span className="text-sm font-semibold tabular-nums text-ink">

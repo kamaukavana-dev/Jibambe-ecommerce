@@ -103,6 +103,8 @@ export interface CartLine {
   variantLabel?: string;
   /** Stable key distinguishing same product with different variants. */
   lineKey: string;
+  /** Units available at add time — the cap the quantity can never exceed. */
+  maxStock: number;
 }
 
 export interface WishlistItem {

@@ -29,6 +29,12 @@ export function OrderSummary({
             <dd className="tabular-nums">−{formatKsh(totals.savings)}</dd>
           </div>
         )}
+        {totals.discount > 0 && (
+          <div className="flex justify-between font-medium text-success">
+            <dt>Coupon {totals.couponCode && <span className="text-ink-subtle">({totals.couponCode})</span>}</dt>
+            <dd className="tabular-nums">−{formatKsh(totals.discount)}</dd>
+          </div>
+        )}
         <div className="flex justify-between text-ink-muted">
           <dt>Delivery</dt>
           <dd className="tabular-nums text-ink">
